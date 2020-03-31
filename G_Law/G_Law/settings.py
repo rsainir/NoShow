@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Client.apps.SuitConfig',
     'Client.apps.ClientConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -125,3 +126,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'client-profile-page'
 LOGIN_URL = 'login-page'
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'gonzalolawtest@gmail.com'
+EMAIL_HOST_PASSWORD = 'PassWord123'
+EMAIL_PORT = 587

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="http://allfont.net/allfont.css?fonts=league-spartan" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{font-family: 'League Spartan';}
+
+body {
+  border: 100px solid white;
+  border-radius: 200px;
+  max-width: 400%;
+  position: relative;
+  text-align: center;
+}
+
+input[type=text], input[type=password] {
+  height: 10px;
+  width: 25%;
+  padding: 12px 20px;
+  display:inline-block;
+  margin: 8px 0;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  text-align:center;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+input[type=text], input[type=email] {
+  height: 10px;
+  width: 25%;
+  padding: 12px 20px;
+  display:inline-block;
+  margin: 8px 0;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  text-align:center;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+button {
+
+  background-color: #2b2147;
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+form { margin: 0 auto; }
+
+.container1{
+  text-align:left;
+}
+
+.imgcontainer {
+  padding-top: 30px;
+  size: 100%;
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.container2 {
+  padding: 16px;
+  text-align:center;
+}
+
+.reg {
+  margin-right: 30px;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+</style>
+</head>
+
+{% extends "./client_base.html" %}
+  
+{% block content %}
+  <div>
+    <body style="background-color:white;text-align:center">
+  
+    <div class="inside" style="background-color:white; border: 5px solid; border-color: #2b2147; text-align:center;border-radius: 20px" >
+
+       <div class ="imgcontainer">
+        <img src="../../static/Client/glaw.jpeg" style="size: 1%; width: 200px; padding-bottom: 1px;margin-bottom: 1px">
+      </div>
+    <br></br>
+    
+    {%load crispy_forms_tags %}
+
+    <form method="post">
+      {% csrf_token %}
+        {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+            <small style="display: none">{{ field.help_text }}</small>
+          {% endif %}
+          {% if form.password1.errors %}
+            {% for error in form.password1.errors %}
+                <p style="color: red">{{ error }}</p>            
+            {%endfor%}
+          {% endif %}
+        </p>
+        {% endfor %}
+      <button type="submit" style="border-radius: 10px; margin-bottom: 25px">Sign up</button>
+    </form>
+  </div>
+</body>
+  </div>
+
+</html>
+{% endblock %}
