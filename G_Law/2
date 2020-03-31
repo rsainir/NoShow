@@ -1,4 +1,0 @@
-Requirement already satisfied: django in /Users/raulsalazar/.pyenv/versions/3.8.2/lib/python3.8/site-packages (3.0.4)
-Requirement already satisfied: sqlparse>=0.2.2 in /Users/raulsalazar/.pyenv/versions/3.8.2/lib/python3.8/site-packages (from django) (0.3.1)
-Requirement already satisfied: pytz in /Users/raulsalazar/.pyenv/versions/3.8.2/lib/python3.8/site-packages (from django) (2019.3)
-Requirement already satisfied: asgiref~=3.2 in /Users/raulsalazar/.pyenv/versions/3.8.2/lib/python3.8/site-packages (from django) (3.2.7)
