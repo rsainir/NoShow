@@ -27,13 +27,14 @@ from django.contrib.auth.decorators import login_required
 from .forms import ClientRegisterForm
 
 from .forms import ClientIntakeForm
-from .models import clientIntake
+from .models import ClientIntake
 
 >>>>>>> 9d98b8f... commit
 @login_required
 def client_intake_page(request):
 	if request.method == 'POST':
-		form = ClientIntakeForm(request.POST)
+		form = ClientIntakeForm(request.POST, instance=request.user.client_intake)
+		
 		if form.is_valid():
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -57,6 +58,7 @@ def client_page(request):
 =======
 >>>>>>> 9d98b8f... commit
 			form.save()
+			user = form.cleaned_data.get('user')
 			firstName = form.cleaned_data.get('firstName')
 			lastName = form.cleaned_data.get('lastName')
 			streetAddress = form.cleaned_data.get('streetAddress')
@@ -75,11 +77,15 @@ def client_page(request):
 			messages.success(request, f'Client intake form completed')
 			return redirect('client-page')
 	else:
+<<<<<<< HEAD
 		form = ClientIntakeForm()
 <<<<<<< HEAD
 >>>>>>> ba88ad6... Heroku Deployment For Sprint 2
 =======
 >>>>>>> 9d98b8f... commit
+=======
+		form = ClientIntakeForm(instance=request.user.client_intake)
+>>>>>>> 085f232... commit2
 
 	return render(request, 'Client/client_intakeForm.html', {'form':form})
 
@@ -151,7 +157,7 @@ def activate(request, uidb64, token):
 	else:
 		form = ClientRegisterForm()
 
-	return render(request, 'Client/client_registration.html', {'form': form})
+	return render(request, 'Client/client_registration.html', {'form':form})
 
 @login_required
 def client_profile_page(request):

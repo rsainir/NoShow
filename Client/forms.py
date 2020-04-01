@@ -11,8 +11,12 @@ class ClientRegisterForm(UserCreationForm):
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> 9d98b8f... commit
 from Client.models import clientIntake
+=======
+from Client.models import ClientIntake
+>>>>>>> 085f232... commit2
 
 class ClientRegisterForm(UserCreationForm):
 	email = forms.EmailField()
@@ -53,6 +57,11 @@ class ClientIntakeForm(forms.ModelForm):
 =======
 class ClientIntakeForm(forms.ModelForm):
 	class Meta:
+<<<<<<< HEAD
 		model = clientIntake
 		fields = ['firstName','lastName','streetAddress','city','zipCode','number','employerName','advice', 'partiesInvolved','desiredOutcome','acceptOutcome','author']
 >>>>>>> 9d98b8f... commit
+=======
+		model = ClientIntake
+		fields = ['firstName','lastName','streetAddress','city','zipCode','number','employerName','advice', 'partiesInvolved','desiredOutcome','acceptOutcome']
+>>>>>>> 085f232... commit2

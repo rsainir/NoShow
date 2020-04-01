@@ -10,3 +10,6 @@ class SuitConfig(DjangoSuitConfig):
 
 class ClientConfig(AppConfig):
     name = 'Client'
+
+   # def ready(self):
+    #    import Client.signals
