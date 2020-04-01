@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
-from Client.models import clientIntake
+from Client.models import ClientIntake
 
 class ClientRegisterForm(UserCreationForm):
 	email = forms.EmailField()
@@ -13,5 +13,5 @@ class ClientRegisterForm(UserCreationForm):
 
 class ClientIntakeForm(forms.ModelForm):
 	class Meta:
-		model = clientIntake
-		fields = ['firstName','lastName','streetAddress','city','zipCode','number','employerName','advice', 'partiesInvolved','desiredOutcome','acceptOutcome','author']
+		model = ClientIntake
+		fields = ['firstName','lastName','streetAddress','city','zipCode','number','employerName','advice', 'partiesInvolved','desiredOutcome','acceptOutcome']
