@@ -12,7 +12,7 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from .forms import ClientIntakeForm
-from .models import clientIntake
+from .models import ClientIntake
 
 @login_required
 def client_intake_page(request):
