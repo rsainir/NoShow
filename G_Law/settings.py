@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
 ]
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -141,3 +142,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'gonzalolawtest@gmail.com'
 EMAIL_HOST_PASSWORD = 'PassWord123'
 EMAIL_PORT = 587
+

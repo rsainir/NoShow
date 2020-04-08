@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 *.pyc
+=======
+>>>>>>> origin/clientIntake
 __pycache__/
 *.py[cod]

@@ -7,9 +7,71 @@
 		<form method = 'POST'>
 			{% csrf_token %}
 			<fieldset class = 'form-group'>
-				<legend class = 'border-bottom mb-4'> Client Intake Form </legend>
-
-				{{form|crispy}}
+                <legend class = 'border-bottom mb-4'> Client Intake Form </legend>
+                
+               
+                <div id="div_id_firstName" class="form-group"> <label for="id_firstName" class=" requiredField">
+                        First name<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="firstName" maxlength="100" class="textinput textInput form-control" required
+                            id="id_firstName"> </div>
+                </div>
+                <div id="div_id_lastName" class="form-group"> <label for="id_lastName" class=" requiredField">
+                        Last name<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="lastName" maxlength="100" class="textinput textInput form-control" required
+                            id="id_lastName"> </div>
+                </div>
+                <div id="div_id_streetAddress" class="form-group"> <label for="id_streetAddress" class=" requiredField">
+                        Street Address<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="streetAddress" maxlength="400" class="textinput textInput form-control"
+                            required id="id_streetAddress"> </div>
+                </div>
+                <div id="div_id_city" class="form-group"> <label for="id_city" class=" requiredField">
+                        City<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="city" maxlength="100" class="textinput textInput form-control" required
+                            id="id_city"> </div>
+                </div>
+                <div id="div_id_zipCode" class="form-group"> <label for="id_zipCode" class=" requiredField">
+                        Postal / Zip Code<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="number" name="zipCode" class="numberinput form-control" required id="id_zipCode"> </div>
+                </div>
+                <div id="div_id_number" class="form-group"> <label for="id_number" class=" requiredField">
+                        Phone Number<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="number" maxlength="12" class="textinput textInput form-control" required
+                            id="id_number"> </div>
+                </div>
+                <div id="div_id_employerName" class="form-group"> <label for="id_employerName" class=" requiredField">
+                        Name of Employer or Business Name if Self-Employed<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="employerName" maxlength="300" class="textinput textInput form-control"
+                            required id="id_employerName"> </div>
+                </div>
+                <div id="div_id_advice" class="form-group"> <label for="id_advice" class=" requiredField">
+                        Briefly explain what you may need advice about or assistance with today<span class="asteriskField">*</span>
+                    </label>
+                    <div class=""> <textarea name="advice" cols="40" rows="10" class="textarea form-control" required id="id_advice">
+                    </textarea> </div>
+                </div>
+                <div id="div_id_partiesInvolved" class="form-group"> <label for="id_partiesInvolved" class=" requiredField">
+                        Are there any other parties involved? (Examples: a friend, an employer, a neighbor, signor of a contract, etc.
+                        This should include parties on either side of your issue)<span class="asteriskField">*</span> </label>
+                    <div class=""> <textarea name="partiesInvolved" cols="40" rows="10" class="textarea form-control" required
+                            id="id_partiesInvolved">
+                    </textarea> </div>
+                </div>
+                <div id="div_id_desiredOutcome" class="form-group"> <label for="id_desiredOutcome" class=" requiredField">
+                        Ideally, if things turn out precisely the way you want, what would be the outcome?<span
+                            class="asteriskField">*</span> </label>
+                    <div class=""> <textarea name="desiredOutcome" cols="40" rows="10" class="textarea form-control" required
+                            id="id_desiredOutcome">
+                    </textarea> </div>
+                </div>
+                <div id="div_id_acceptOutcome" class="form-group"> <label for="id_acceptOutcome" class=" requiredField">
+                        Knowing that there are no guarantees, what final outcome can you reasonably accept?<span
+                            class="asteriskField">*</span> </label>
+                    <div class=""> <textarea name="acceptOutcome" cols="40" rows="10" class="textarea form-control" required
+                            id="id_acceptOutcome">
+                
+                    </textarea> </div> 
+                </div>
 
 			</fieldset>
 
