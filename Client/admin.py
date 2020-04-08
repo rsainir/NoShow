@@ -50,4 +50,9 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
+<<<<<<< HEAD
 >>>>>>> 085f232... commit2
+=======
+
+admin.site.site_header = 'Gonzalo Law Administration'
+>>>>>>> 5fcf114... admin header
