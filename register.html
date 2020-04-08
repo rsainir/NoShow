@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="http://allfont.net/allfont.css?fonts=league-spartan" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{font-family: 'League Spartan';}
+body {
+  border: 3px solid #2b2147;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 60%;
+  position:relative;
+  margin-bottom: 40px;
+}
+
+input[type=text], input[type=password] {
+  width: 25%;
+  padding: 12px 20px;
+  display:inline-block;
+  margin: 8px 0;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  text-align:center;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+button {
+
+  background-color: #2b2147;
+  color: white;
+  padding: 14px ;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.container1{
+  text-align:center;
+}
+
+.imgcontainer {
+  size: 20%;
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.logo1 {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.container2 {
+  padding: 16px;
+  text-align:center;
+}
+
+.reg {
+  margin-right: 30px;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+</style>
+</head>
+<body>
+  <div class="imgcontainer">
+    <img src="glaw.jpeg" class=logo1>
+  </div>
+
+  <div class="container1">
+    <div class="ucont">
+    <label class='uname' for="uname">Email</label>
+    </div>
+    <input type="text"  placeholder="Enter Email" name="uname" required>
+    <div class="pcont">
+    <label class='pass' for="pass">Password</label>
+    </div>
+    <input type="password" placeholder="Enter Password" name="pass" required>
+    <div class=rpasscont>
+    <label class='rpass' for="rpass">Re-enter Password</label>
+    </div>
+    <input type="password" placeholder="Re-enter Password" name="rpass" required>
+    <br></br>
+    <button class= "submit" type="submit">Resister</button>
+  </div>
+
+  <div class="container2">
+    <span class="reg">Login </span>
+    <span class="forg">Forgot your password?</span>
+  </div>
+</body>
+</html>

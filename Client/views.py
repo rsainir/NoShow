@@ -12,14 +12,15 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from .forms import ClientIntakeForm
-from .models import clientIntake
+from .models import ClientIntake
 
 @login_required
 def client_intake_page(request):
 	if request.method == 'POST':
-		form = ClientIntakeForm(request.POST)
+		form = ClientIntakeForm(request.POST, instance=request.user.client_intake)
 		if form.is_valid():
 			form.save()
+			user = form.cleaned_data.get('user')
 			firstName = form.cleaned_data.get('firstName')
 			lastName = form.cleaned_data.get('lastName')
 			streetAddress = form.cleaned_data.get('streetAddress')
@@ -34,7 +35,7 @@ def client_intake_page(request):
 			messages.success(request, f'Client intake form completed')
 			return redirect('client-page')
 	else:
-		form = ClientIntakeForm()
+		form = ClientIntakeForm(instance=request.user.client_intake)
 
 	return render(request, 'Client/client_intakeForm.html', {'form':form})
 
@@ -66,6 +67,7 @@ def registration_page(request):
 	else:
 		form = ClientRegisterForm(request.POST)
 	return render(request, 'Client/client_registration.html', {'form': form})
+
 
 @login_required
 def client_profile_page(request):
