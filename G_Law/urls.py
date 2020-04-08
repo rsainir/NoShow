@@ -22,7 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('client/', include('Client.urls')),
-    url(r'^/$', views.test_redirect1, name='test_redirect1'),
+    url(r'^$', views.test_redirect1, name='test_redirect1'),
     url(r'^$', views.test_redirect2, name='test_redirect2'),
 
 ]

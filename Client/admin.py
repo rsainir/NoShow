@@ -21,3 +21,5 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
+
+admin.site.site_header = 'Gonzalo Law Administration'
