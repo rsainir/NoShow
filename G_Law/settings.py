@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+from django.forms import Field
+from django.utils.translation import ugettext_lazy
+Field.default_error_messages = {
+    'required': ugettext_lazy(""),
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

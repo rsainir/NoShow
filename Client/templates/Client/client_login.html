@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,6 +78,15 @@ form { margin: auto; }
   margin-right: 30px;
 }
 
+.m-0{
+  list-style:none;
+}
+
+label::before {
+    content: ' *';
+    color: red;
+}
+
 
 /* Change styles for span and cancel button on extra small screens */
 
@@ -108,7 +118,7 @@ form { margin: auto; }
             <!--legend class = 'border-bottom mb-4'> Log In </legend-->
 
             {{form|crispy}}
-
+          
           </fieldset>
 
           <div class = 'form-group'>  
