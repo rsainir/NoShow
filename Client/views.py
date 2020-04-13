@@ -120,6 +120,7 @@ def registration_page(request):
 	return render(request, 'Client/client_registration.html', {'form': form})
 
 
+
 @login_required
 def client_profile_page(request):
 <<<<<<< HEAD

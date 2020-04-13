@@ -81,6 +81,14 @@ form { margin: 0 auto; }
   margin-right: 30px;
 }
 
+ul{
+  list-style:none;
+}
+label.required::before {
+    content: ' *';
+    color: red;
+}
+
 
 /* Change styles for span and cancel button on extra small screens */
 
@@ -106,14 +114,13 @@ form { margin: 0 auto; }
       {% csrf_token %}
         {% for field in form %}
         <p>
-          {{ field.label_tag }}<br>
           {{ field }}
           {% if field.help_text %}
             <small style="display: none">{{ field.help_text }}</small>
           {% endif %}
           {% if field.errors %}
             {% for error in field.errors %}
-                <p style="color: red">{{ error }}</p>
+              <p style="color: red">{{ error }}</p>
             {%endfor%}
           {% endif %}
         </p>

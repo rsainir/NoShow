@@ -13,8 +13,16 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 <<<<<<< HEAD
 import dj_database_url
+<<<<<<< HEAD
 =======
 >>>>>>> 9d98b8f... commit
+=======
+from django.forms import Field
+from django.utils.translation import ugettext_lazy
+Field.default_error_messages = {
+    'required': ugettext_lazy(""),
+}
+>>>>>>> c6447b9... trying to push from terminal
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
