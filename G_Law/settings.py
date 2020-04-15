@@ -139,7 +139,7 @@ STATICFILES_DIRS = (
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = 'client-profile-page'
-LOGIN_URL = 'login-page'
+LOGIN_URL = 'signin'
 
 
 EMAIL_USE_TLS = True
@@ -147,4 +147,3 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'gonzalolawtest@gmail.com'
 EMAIL_HOST_PASSWORD = 'PassWord123'
 EMAIL_PORT = 587
-
