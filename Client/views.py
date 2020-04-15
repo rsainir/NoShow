@@ -1,6 +1,7 @@
 from django.contrib import messages
 <<<<<<< HEAD
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -14,6 +15,7 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from .forms import ClientIntakeForm
 from .models import ClientIntake
+from django.urls import reverse
 
 <<<<<<< HEAD
 from .forms import ClientIntakeForm
@@ -102,7 +104,7 @@ def registration_page(request):
 			user.is_active = False
 			user.save()
 			current_site = get_current_site(request)
-			mail_subject = 'Activate your blog account.'
+			mail_subject = 'Activate your GL Law Client Account.'
 			message = render_to_string('Client/acc_active_email.html', {
 				'user': user,
 				'domain': current_site.domain,
@@ -114,7 +116,7 @@ def registration_page(request):
 				mail_subject, message, to=[to_email]
 			)
 			email.send()
-			return HttpResponse('Please confirm your email address to complete the registration')
+			return render(request,'Client/confirmation_requested.html')
 	else:
 		form = ClientRegisterForm(request.POST)
 	return render(request, 'Client/client_registration.html', {'form': form})
@@ -141,8 +143,9 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
+        #html = '<html> <body>Thank you for your email confirmation. Now you can login your account at the following link: <a class="nav-item nav-link" href={pathh}>Login</a></body></html>'
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return render(request, "Client/client_activated.html")
     else:
         return HttpResponse('Activation link is invalid!')
 >>>>>>> 6c159f3... Cleaned up directory, updated out of date imports. Added README.txt
