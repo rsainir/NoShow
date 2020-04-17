@@ -8,19 +8,19 @@ from django.core.exceptions import ObjectDoesNotExist
 # Create your models here.
 
 class ClientIntake(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client_intake')
-    firstName = models.CharField(max_length=100)
-    lastName = models.CharField(max_length=100)
-    streetAddress = models.CharField(max_length=400)
-    city = models.CharField(max_length=100)
-    zipCode = models.IntegerField()
-    number = models.CharField(max_length=12)
-    employerName = models.CharField(max_length = 300)
-    advice = models.TextField()
-    partiesInvolved = models.TextField()
-    desiredOutcome = models.TextField()
-    acceptOutcome = models.TextField()
-    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client_intake', null=True)
+    firstName = models.CharField(u'First name',max_length=100)
+    lastName = models.CharField(u'Last name', max_length=100)
+    streetAddress = models.CharField(u'Street address', max_length=400)
+    city = models.CharField(u'City', max_length=100)
+    zipCode = models.IntegerField(u'Postal / Zip code')
+    number = models.CharField(u'Phone number', max_length=12)
+    employerName = models.CharField(u'Name of employer or business name if self-employed',max_length = 300, default='')
+    advice = models.TextField(u'Briefly explain what you may need advice about or assistance with today', default='')
+    partiesInvolved = models.TextField(u'Are there any other parties involved? (Examples: a friend, an employer, a neighbor, signor of a contract, etc. This should include parties on either side of your issue)', default='')
+    desiredOutcome = models.TextField(u'Ideally, if things turn out precisely the way you want, what would be the outcome?', default='')
+    acceptOutcome = models.TextField(u'Knowing that there are no guarantees, what final outcome can you reasonably accept?', default='')
+
     def __User__(self):
         return self.user
 
