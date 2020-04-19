@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class clientIntake(models.Model):
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     PROGRESS_CHOICES = (
             ('1','Submitted'),
@@ -27,6 +28,8 @@ class clientIntake(models.Model):
       class Meta:
         ordering = ['date_created']
 =======
+=======
+>>>>>>> 9d98b8f... commit
     firstName = models.CharField(max_length=100)
     lastName = models.CharField(max_length=100)
     streetAddress = models.CharField(max_length=400)
@@ -39,4 +42,11 @@ class clientIntake(models.Model):
     desiredOutcome = models.TextField()
     acceptOutcome = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+<<<<<<< HEAD
 >>>>>>> ba88ad6... Heroku Deployment For Sprint 2
+=======
+
+
+    
+
+>>>>>>> 9d98b8f... commit

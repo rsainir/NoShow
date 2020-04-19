@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from django.conf.urls import url
 from . import views
 from django.urls import path, include
@@ -25,4 +26,11 @@ urlpatterns = [
     url(r'^/$', views.test_redirect1, name='test_redirect1'),
     url(r'^$', views.test_redirect2, name='test_redirect2'),
 
+=======
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('client/', include('Client.urls')),
+>>>>>>> 9d98b8f... commit
 ]

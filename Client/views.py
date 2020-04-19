@@ -1,4 +1,5 @@
 from django.contrib import messages
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
@@ -20,11 +21,21 @@ from .models import clientIntake
 
 =======
 >>>>>>> ba88ad6... Heroku Deployment For Sprint 2
+=======
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .forms import ClientRegisterForm
+
+from .forms import ClientIntakeForm
+from .models import clientIntake
+
+>>>>>>> 9d98b8f... commit
 @login_required
 def client_intake_page(request):
 	if request.method == 'POST':
 		form = ClientIntakeForm(request.POST)
 		if form.is_valid():
+<<<<<<< HEAD
 <<<<<<< HEAD
 			fs = form.save(commit = False)
 			fs.username = request.user
@@ -43,6 +54,8 @@ def client_intake_page(request):
 def client_page(request):
 	return render(request, 'Client/client_home.html')
 =======
+=======
+>>>>>>> 9d98b8f... commit
 			form.save()
 			firstName = form.cleaned_data.get('firstName')
 			lastName = form.cleaned_data.get('lastName')
@@ -55,11 +68,18 @@ def client_page(request):
 			partiesInvolved = form.cleaned_data.get('partiesInvolved')
 			desiredOutcome = form.cleaned_data.get('desiredOutcome')
 			acceptOutcome = form.cleaned_data.get('acceptOutcome')
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 9d98b8f... commit
 			messages.success(request, f'Client intake form completed')
 			return redirect('client-page')
 	else:
 		form = ClientIntakeForm()
+<<<<<<< HEAD
 >>>>>>> ba88ad6... Heroku Deployment For Sprint 2
+=======
+>>>>>>> 9d98b8f... commit
 
 	return render(request, 'Client/client_intakeForm.html', {'form':form})
 
@@ -68,6 +88,7 @@ def client_page(request):
 	return render(request, 'Client/client_home.html')
 
 def registration_page(request):
+<<<<<<< HEAD
 	if request.method == 'POST':
 		form = ClientRegisterForm(request.POST)
 		if form.is_valid():
@@ -118,3 +139,21 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 >>>>>>> 6c159f3... Cleaned up directory, updated out of date imports. Added README.txt
+=======
+
+	if request.method == 'POST':
+		form = ClientRegisterForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			messages.success(request, f'Your Account Has Been Created, Please Log In')
+			return redirect('login-page')
+	else:
+		form = ClientRegisterForm()
+
+	return render(request, 'Client/client_registration.html', {'form': form})
+
+@login_required
+def client_profile_page(request):
+	return render(request, 'Client/client_profile_page.html')
+>>>>>>> 9d98b8f... commit

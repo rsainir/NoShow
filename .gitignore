@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 *.pyc
+=======
+>>>>>>> 9d98b8f... commit
 __pycache__/
 *.py[cod]
