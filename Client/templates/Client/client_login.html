@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> c6447b9... trying to push from terminal
@@ -10,6 +11,8 @@
 =======
 
 >>>>>>> e88d2f7... master + forgot
+=======
+>>>>>>> 1d7ad39... gonna kms
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,10 +95,27 @@ form { margin: auto; }
 .m-0{
   list-style:none;
 }
+.requiredField{
+  display:none;
+}
+
+input[type="text"]{
+  height:20px;
+
+}
+input[type="password"]{
+  height:20px;
+
+}
 
 label::before {
-    content: ' *';
-    color: red;
+  content: ' *';
+  color: red;
+}
+form {
+
+  justify-content: center;
+  text-align: center;
 }
 
 
@@ -109,11 +129,9 @@ label::before {
 
 {% block content %}
 
-  {%load crispy_forms_tags %}
 
 
-
-<div >
+<div>
 
 <body style="background-color:white;text-align:center">
 
@@ -123,12 +141,30 @@ label::before {
         <img src="../../static/Client/glaw.jpeg" class=logo1>
       </div>
 
+      {% if form.errors %}
+      <p style="color: red">Sorry, your username and/or password are incorrect. <br>Please try again.</p>
+      {% endif %}
+      {% if next %}
+          {% if user.is_authenticated %}
+          <p>Your account doesn't have access to this page. To proceed,
+          please login with an account that has access.</p>
+          {% else %}
+          <p>Please login to see this page.</p>
+          {% endif %}
+      {% endif %}
+
         <form method = 'POST' class = "container1">
           {% csrf_token %}
-          <fieldset class = 'form-group'>
-            <!--legend class = 'border-bottom mb-4'> Log In </legend-->
-
-            {{form|crispy}}
+          <div class="form-group">
+            <div class="col-md-12">
+              {{form.username}}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              {{form.password}}
+            </div>
+          </div>
 
           </fieldset>
 
@@ -140,6 +176,9 @@ label::before {
       <div class = 'border-top pt-3'>
         <small class = 'text-muted'> <b>Need an account?</b>
           <a class = 'ml-2' href="{% url 'registration-page' %}"> <b>Sign Up </a>
+        </small>
+        <small>
+          <a class = 'ml-2' href="{% url 'password_reset' %}"> <b><br>Forgot Password?</a>
         </small>
         <small>
           <a class = 'ml-2' href="{% url 'password_reset' %}"> <b><br>Forgot Password?</a>
