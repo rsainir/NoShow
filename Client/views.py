@@ -35,12 +35,15 @@ def client_intake_page(request):
 			desiredOutcome = form.cleaned_data.get('desiredOutcome')
 			acceptOutcome = form.cleaned_data.get('acceptOutcome')
 			messages.success(request, f'Client intake form completed')
-			return redirect('client-page')
+			return redirect('client-intake-submit')
 	else:
 		form = ClientIntakeForm(instance=request.user.client_intake)
 
 	return render(request, 'Client/client_intakeForm.html', {'form':form})
 
+@login_required
+def client_intake_submit(request):
+	return render(request, 'Client/client_intake_submit.html',)
 
 def client_page(request):
 	return render(request, 'Client/client_home.html')
