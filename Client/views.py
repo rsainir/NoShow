@@ -77,7 +77,7 @@ def client_page(request):
 		
 >>>>>>> 9d98b8f... commit
 			messages.success(request, f'Client intake form completed')
-			return redirect('client-page')
+			return redirect('client-intake-submit')
 	else:
 <<<<<<< HEAD
 		form = ClientIntakeForm()
@@ -91,6 +91,9 @@ def client_page(request):
 
 	return render(request, 'Client/client_intakeForm.html', {'form':form})
 
+@login_required
+def client_intake_submit(request):
+	return render(request, 'Client/client_intake_submit.html',)
 
 def client_page(request):
 	return render(request, 'Client/client_home.html')
