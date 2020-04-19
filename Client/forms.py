@@ -2,7 +2,20 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Client.models import clientIntake
+=======
+from Client.models import ClientIntake
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
+
+class CustomAuthForm(AuthenticationForm):
+	username = forms.CharField(widget=TextInput(attrs={'class':'validate','placeholder': 'Username'}))
+	password = forms.CharField(widget=PasswordInput(attrs={'placeholder':'Password'}))
+	def confirm_login_allowed(self, user):
+		if not user.is_active:
+			raise forms.ValidationError('There was a problem with your login.', code='invalid_login')
+>>>>>>> d260084... raulnew now contains rohan's login stuff
 
 class ClientRegisterForm(UserCreationForm):
 	required_css_class = 'required'
@@ -71,7 +84,7 @@ class ClientIntakeForm(forms.ModelForm):
 			raise forms.ValidationError("You must hellosword")
 		password1 = self.cleaned_data.get('password1')
 		password2 = self.cleaned_data.get('password2')
-		
+
 		if not password2:
 			raise forms.ValidationError("You must confirm your password")
 		if password1 != password2:
