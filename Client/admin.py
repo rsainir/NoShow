@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import ClientIntake
+#from .models import Router
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
@@ -12,7 +13,12 @@ class ClientIntakeInline(admin.StackedInline):
     verbose_name_plural = 'Client Intake Form'
     fk_name = 'user'
 
+#class Documents(admin.StackedInline):
+ #   model=Router
+  #  verbose_name_plural='Documents'
+
 class CustomUserAdmin(UserAdmin):
+    #inlines = (ClientIntakeInline, Documents,)
     inlines = (ClientIntakeInline, )
     def get_inline_instances(self, request, obj=None):
         if not obj:

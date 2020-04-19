@@ -14,6 +14,12 @@ from django.contrib.auth.models import User
 from .forms import ClientIntakeForm
 from .models import ClientIntake
 
+
+#def client_file(request):
+#	if request.method == 'GET':
+
+
+
 @login_required
 def client_intake_page(request):
 	if request.method == 'POST':
@@ -41,7 +47,7 @@ def client_intake_page(request):
 
 @login_required
 def client_intake_submit(request):
-	return render(request, 'Client/client_intake_submit.html',)
+	return render(request, 'Client/client_intake_submit.html')
 
 def client_page(request):
 	return render(request, 'Client/client_home.html')
@@ -72,8 +78,19 @@ def registration_page(request):
 	return render(request, 'Client/client_registration.html', {'form': form})
 
 
+#@login_required
+#def client_files(request):
+
 @login_required
 def client_profile_page(request):
+	'''
+	if request.method=='GET' and (request.user.client_files):
+		username= request.user.client_files.specifications
+		return render(request, './Client/media/<string:username>/test.html')
+	else: 
+		return render(request, 'Client/client_profile_page.html')
+	'''
+
 	return render(request, 'Client/client_profile_page.html')
 
 def activate(request, uidb64, token):

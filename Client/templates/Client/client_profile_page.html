@@ -2,7 +2,15 @@
 
 {% block content %}
 
+    
+
 	<h1> {{ user.username }}</h1>
+	<!---{% if user.router.specifications %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.username}}/test.pdf">Download PDF </a>
+
+    {% else %}
+		<a class='ml-2' >No new uploads</a>
+	{% endif %}-->
 
 {% endblock content %}
 

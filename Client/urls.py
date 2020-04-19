@@ -15,6 +15,8 @@ urlpatterns = [
 	path('profile/', views.client_profile_page, name='client-profile-page'),
 	path('intakeForm/', views.client_intake_page,name='client-intake-page'),
 	path('intakeForm/confirm',views.client_intake_submit,name='client-intake-submit'),
+	#url(r'^profile/$', views.client_profile_page, name='client-profile-page'),
+	#path('profile/files', views.client_files,name='client-files'),
 
 
 
