@@ -12,7 +12,7 @@ class ClientRegisterForm(UserCreationForm):
 		fields = ['username', 'email', 'password1', 'password2']
 
 class ClientIntakeForm(forms.ModelForm):
-	
+
 	class Meta:
 		model = clientIntake
 		fields = ['firstName','lastName','entry']

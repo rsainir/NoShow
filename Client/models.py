@@ -8,7 +8,7 @@ class clientIntake(models.Model):
     PROGRESS_CHOICES = (
             ('1','Submitted'),
             ('2','Recevied'),
-            ('3','Filed'), 
+            ('3','Filed'),
             ('4','Resolved')
         )
     firstName = models.CharField(max_length=100)
@@ -25,8 +25,3 @@ class clientIntake(models.Model):
 
       class Meta:
         ordering = ['date_created']
-
-
-
-    
-

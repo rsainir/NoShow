@@ -17,7 +17,7 @@ def client_intake_page(request):
 			lastName = form.cleaned_data.get('lastName')
 			entry = form.cleaned_data.get('entry')
 			fs.save()
-		
+
 			messages.success(request, f'Client intake form completed')
 			return redirect('client-profile-page')
 	else:
