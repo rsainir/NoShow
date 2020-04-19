@@ -1,0 +1,40 @@
+{% extends "./client_base.html" %}
+
+{% block content %}
+
+	<h1> {{ user.username }}</h1>
+
+	{% for intake_form in form_list %}
+
+	<div class="card">
+  		<div class="card-header">
+    		{{intake_form.date_created}}
+  		</div>
+
+  		<div class="card-body">
+    		<h5 class="card-title">Entry {{forloop.counter}}</h5>
+
+    		<p class="card-text">
+    			{{intake_form.entry}}
+    		</p>
+
+    		<hr>
+    		<div class = "flex-container">
+    			{% for choice in choices %}
+    				<div style = "color: white">{{choice}}</div>
+    		 	{% endfor %}
+    		 
+			</div>
+    		 <div class = "flex-container2">
+    		 	{% for i in "x"|rjust:intake_form.progress %}
+					<div> . </div>
+				{% endfor %}
+			</div>
+			
+
+		</div>
+	</div>		
+
+	{% endfor %}
+
+{% endblock content %}
