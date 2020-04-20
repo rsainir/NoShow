@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+from django.forms import Field
+from django.utils.translation import ugettext_lazy
+Field.default_error_messages = {
+    'required': ugettext_lazy(""),
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -136,7 +141,7 @@ STATICFILES_DIRS = (
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = 'client-profile-page'
-LOGIN_URL = 'login-page'
+LOGIN_URL = 'signin'
 
 
 EMAIL_USE_TLS = True
@@ -144,4 +149,3 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'gonzalolawtest@gmail.com'
 EMAIL_HOST_PASSWORD = 'PassWord123'
 EMAIL_PORT = 587
-

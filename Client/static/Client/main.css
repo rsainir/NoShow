@@ -82,3 +82,44 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 80px;
+  
+
+}
+
+.flex-container > div {
+  background-color:#2b2147;
+  width: 13%;
+  margin: 5px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 15px;
+  border-radius: 3px;
+  
+}
+
+.flex-container2 {
+  display: flex;
+  background-color: white;
+  height: 60px;
+
+
+}
+.flex-container2 > div {
+  background-color: #ee8c3a;
+  width: 13%;
+  margin: 5px;
+
+  line-height: 20px;
+  font-size: 0px;
+  border-radius: 3px;
+  flex-grow: 0;
+  flex-basis: 1;
+  
+
+}

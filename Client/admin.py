@@ -12,6 +12,8 @@ class ClientIntakeInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'Client Intake Form'
     fk_name = 'user'
+    readonly_fields = ('firstName','lastName','streetAddress','city','zipCode','number','employerName','advice', 'partiesInvolved','desiredOutcome','acceptOutcome')
+
 
 class Documents(admin.StackedInline):
     model=Router
