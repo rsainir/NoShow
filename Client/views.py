@@ -84,22 +84,7 @@ def registration_page(request):
 	return render(request, 'Client/client_registration.html', {'form': form})
 
 
-<<<<<<< HEAD
-#@login_required
-#def client_files(request):
 
-@login_required
-def client_profile_page(request):
-	'''
-	if request.method=='GET' and (request.user.client_files):
-		username= request.user.client_files.specifications
-		return render(request, './Client/media/<string:username>/test.html')
-	else: 
-		return render(request, 'Client/client_profile_page.html')
-	'''
-
-	return render(request, 'Client/client_profile_page.html')
-=======
 
 @login_required
 def client_profile_page(request):
@@ -108,7 +93,6 @@ def client_profile_page(request):
 
 	return render(request, 'Client/client_profile_page.html', {'form_list':intake_forms, "choicesA": [x[1] for x in ClientIntake.PROGRESS_CHOICES_A],"choicesB": [x[1] for x in ClientIntake.PROGRESS_CHOICES_B],"choicesC": [x[1] for x in ClientIntake.PROGRESS_CHOICES_C]})
 
->>>>>>> 35e61046833b52498f249429738bfcc2855b3737
 
 def activate(request, uidb64, token):
     try:
