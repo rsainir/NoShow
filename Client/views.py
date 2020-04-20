@@ -52,6 +52,10 @@ def client_intake_submit(request):
 def client_page(request):
 	return render(request, 'Client/client_home.html')
 
+@login_required
+def client_documents(request):
+	return render(request, 'Client/client_documents.html')
+
 def registration_page(request):
 	if request.method == 'POST':
 		form = ClientRegisterForm(request.POST)

@@ -5,16 +5,17 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
 
-#def user_directory_path(instance,filename):
-   # return '{0}/{1}'.format(instance.user.username,filename)
+def user_directory_path(instance,filename):
+    return '{0}/{1}'.format(instance.user.username,filename)
 
 # Create your models here.
-#class Router(models.Model):
- #   user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client_files', null=True)
-  #  specifications=models.FileField(upload_to=user_directory_path)
+class Router(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='router', null=True)
+    clientDocs=models.FileField(u'Letter of Engagement',upload_to=user_directory_path, null=True)
+    
   
-   # def __User__(self):
-    #    return self.user
+    def __User__(self):
+        return self.user
 
 class ClientIntake(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client_intake', null=True)
@@ -48,6 +49,13 @@ def create_or_update_user_client_intake(sender, instance, created, **kwargs):
  #   if not created:
   #      Router.objects.create(user=instance)
    # instance.router.save()
+
+@receiver(post_save, sender=User)
+def create_or_update_user_router(sender, instance, created, **kwargs):
+    try:
+        instance.router.save()
+    except ObjectDoesNotExist:
+        Router.objects.create(user=instance)
    
 
 

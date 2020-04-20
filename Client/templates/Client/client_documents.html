@@ -1,0 +1,34 @@
+{% extends "./client_base.html" %}
+
+{% block content %}
+
+    
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <a class='ml-2' > Download Documents: </a>
+        {% if user.router.clientDocs %}
+        <!--<a class="nav-item nav-link" href="/Client/./media/{{user.username}}/Test_file.pdf">Download PDF </a>-->
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.clientDocs}}">  Letter of Engagement </a>
+
+        {% else %}
+		<a class='ml-2' >   No new uploads</a>
+        {% endif %}
+      </div>
+      <div class="col">
+        <a class='ml-2'> Upload Documents:</a>
+      </div>
+    </div>
+
+    <!--
+	<a class='ml-2' > Download Documents </a>
+    {% if user.router.specifications %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.username}}/Test_file.pdf">Download PDF </a>
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.specifications}}">  Letter of Engagement </a>
+
+    {% else %}
+		<a class='ml-2' >   No new uploads</a>
+    {% endif %}
+    <a class='ml-2'> Upload Documents</a>-->
+
+{% endblock content %}
