@@ -2,7 +2,72 @@
 
 {% block content %}
 
-	<h1> {{ user.username }}</h1>
+	<h1> {{ user.user }}</h1>
+
+
+
+	{% for intake_form in form_list %}
+
+
+	<div class="card" style="border-color: white; float: left; left: -200px; width: 1500px">
+  		<div class="card-header">
+    		{{intake_form.lastName}}
+  		</div>
+
+  		<div class="card-body">
+    		<h5 class="card-title">Progress Tracker</h5>
+
+    		
+
+    		<hr>
+    		<div style="color: black">   • Intellectual Property</div>
+    		<div class = "flex-container">
+    			
+    			{% for choice in choicesA %}
+    				<div style = "color: white"><br>{{choice}}</div>
+    		 	{% endfor %}
+    		 
+			</div>
+
+    		 <div class = "flex-container2">
+    		 	{% for i in "x"|rjust:intake_form.progress_A %}
+					<div> . </div>
+				{% endfor %}
+			</div>
+			<br><br>
+			<div style="color: black">   • Contract Drafting</div>
+			<div class = "flex-container">
+				
+    			{% for choice in choicesB %}
+    				<div style = "color: white"><br>{{choice}}</div>
+    		 	{% endfor %}
+    		 
+			</div>
+
+    		 <div class = "flex-container2">
+    		 	{% for i in "x"|rjust:intake_form.progress_B %}
+					<div> . </div>
+				{% endfor %}
+			</div>
+			<br><br>
+			<div style="color: black">  • Deal Negotiation</div>
+			<div class = "flex-container">
+    			{% for choice in choicesC %}
+    				<div style = "color: white"><br>{{choice}}</div>
+    		 	{% endfor %}
+    		 
+			</div>
+
+    		 <div class = "flex-container2">
+    		 	{% for i in "x"|rjust:intake_form.progress_C %}
+					<div style="color:red"> . </div>
+				{% endfor %}
+			</div>
+			
+
+		</div>
+	</div>		
+
+	{% endfor %}
 
 {% endblock content %}
-

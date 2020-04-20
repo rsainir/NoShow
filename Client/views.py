@@ -77,7 +77,11 @@ def registration_page(request):
 
 @login_required
 def client_profile_page(request):
-	return render(request, 'Client/client_profile_page.html')
+	if request.method == 'GET':
+		intake_forms = ClientIntake.objects.filter(user = request.user)
+
+	return render(request, 'Client/client_profile_page.html', {'form_list':intake_forms, "choicesA": [x[1] for x in ClientIntake.PROGRESS_CHOICES_A],"choicesB": [x[1] for x in ClientIntake.PROGRESS_CHOICES_B],"choicesC": [x[1] for x in ClientIntake.PROGRESS_CHOICES_C]})
+
 
 def activate(request, uidb64, token):
     try:
