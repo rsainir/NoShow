@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django import forms
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
@@ -11,9 +11,11 @@ def user_directory_path(instance,filename):
 # Create your models here.
 class Router(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='router', null=True)
-    clientDocs=models.FileField(u'Letter of Engagement',upload_to=user_directory_path, null=True)
-    
-  
+    clientDocs=models.FileField(u'Letter of Engagement (Word.docx)',upload_to=user_directory_path, null=True, blank=True)
+    clientDocs1=models.FileField(u'Letter of Engagement (PDF)',upload_to=user_directory_path, null=True, blank=True)
+    doc2 = models.FileField(u'Document 2', upload_to= user_directory_path, null=True, blank=True)
+    doc3 = models.FileField(u'Document 3', upload_to=user_directory_path, null=True, blank=True)
+
     def __User__(self):
         return self.user
 
@@ -53,6 +55,8 @@ class ClientIntake(models.Model):
     progress_A = models.CharField(max_length = 100, choices = PROGRESS_CHOICES_A, default = 1)
     progress_B = models.CharField(max_length = 100, choices = PROGRESS_CHOICES_B, default = 1)
     progress_C = models.CharField(max_length = 100, choices = PROGRESS_CHOICES_C, default = 1)
+    user.first_name = firstName
+    user.last_name = lastName
 
     def __User__(self):
         return self.user
@@ -70,9 +74,3 @@ def create_or_update_user_router(sender, instance, created, **kwargs):
         instance.router.save()
     except ObjectDoesNotExist:
         Router.objects.create(user=instance)
-   
-
-
-
-
-    

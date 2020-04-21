@@ -17,19 +17,20 @@ from django.contrib import admin
 from django.conf.urls import url
 from . import views
 from django.urls import path, include
-
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('client/client/admin', admin.site.urls),
+    path('client/profile/client/admin', admin.site.urls),
+    path('client/documents/client/admin', admin.site.urls),
+    path('client/intakeForm/client/admin', admin.site.urls),
     path('client/', include('Client.urls')),
+    url(r'client/^$', views.test_redirect4, name='test_redirect4'),
     url(r'^$', views.test_redirect1, name='test_redirect1'),
     url(r'^$', views.test_redirect2, name='test_redirect2'),
-    
-
-
+    url(r'^client/profile/admin/$', views.test_redirect3, name='test_redirect3'),
 ]
 
 if settings.DEBUG:

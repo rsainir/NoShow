@@ -88,7 +88,7 @@ a.article-title:hover {
   flex-direction: row;
   background-color: white;
   height: 80px;
-  
+
 
 }
 
@@ -100,7 +100,7 @@ a.article-title:hover {
   line-height: 20px;
   font-size: 15px;
   border-radius: 3px;
-  
+
 }
 
 .flex-container2 {
@@ -120,6 +120,6 @@ a.article-title:hover {
   border-radius: 3px;
   flex-grow: 0;
   flex-basis: 1;
-  
+
 
 }

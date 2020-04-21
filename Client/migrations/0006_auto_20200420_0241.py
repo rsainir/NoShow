@@ -23,6 +23,21 @@ class Migration(migrations.Migration):
             name='clientDocs',
             field=models.FileField(null=True, upload_to=Client.models.user_directory_path),
         ),
+        migrations.AddField(
+            model_name='router',
+            name='clientDocs1',
+            field=models.FileField(null=True, upload_to=Client.models.user_directory_path),
+        ),
+        migrations.AddField(
+            model_name='router',
+            name='doc2',
+            field=models.FileField(null=True, upload_to=Client.models.user_directory_path),
+        ),
+        migrations.AddField(
+            model_name='router',
+            name='doc3',
+            field=models.FileField(null=True, upload_to=Client.models.user_directory_path),
+        ),
         migrations.AlterField(
             model_name='router',
             name='user',

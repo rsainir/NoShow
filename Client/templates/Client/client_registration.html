@@ -126,6 +126,10 @@ label.required::before {
         {% endfor %}
       <button type="submit" style="border-radius: 10px; margin-bottom: 25px">Sign up</button>
     </form>
+    <div class = 'border-top pt-1 '>
+      <small class = 'text-muted'> <b>Already have an account?</b>
+        <a class = 'ml-2' href="{% url 'signin' %}"> <b>Sign In </a>
+      </small>
   </div>
 </body>
   </div>

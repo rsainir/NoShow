@@ -1,15 +1,16 @@
 
 {% extends "./client_base.html" %}
 
+
 {% block content %}
 	{%load crispy_forms_tags %}
 	<div class = 'content-section'>
 		<form method = 'POST'>
 			{% csrf_token %}
 			<fieldset class = 'form-group'>
-                <legend class = 'border-bottom mb-4'> Client Intake Form </legend>
-                
-               
+                <h2 class = 'border-bottom mb-4'> <br><br>Client Intake Form </h2>
+
+
                 <div id="div_id_firstName" class="form-group"> <label for="id_firstName" class=" requiredField">
                         First name<span class="asteriskField">*</span> </label>
                     <div class=""> <input type="text" name="firstName" maxlength="100" class="textinput textInput form-control" required
@@ -69,17 +70,18 @@
                             class="asteriskField">*</span> </label>
                     <div class=""> <textarea name="acceptOutcome" cols="40" rows="10" class="textarea form-control" required
                             id="id_acceptOutcome">
-                
-                    </textarea> </div> 
+
+                    </textarea> </div>
                 </div>
 
 			</fieldset>
 
-			<div class = 'form-group'>	
+			<div class = 'form-group'>
 				<button class = 'btn btn-outline-info' type = 'submit'> Submit </button>
 			</div>
-		</form>	
+		</form>
 
-	
+
 	</div>
+	
 {% endblock content%}

@@ -2,7 +2,12 @@
 
 {% block content %}
 	<div>
-		<h1>Client Home</h1>
+		{% if user.is_authenticated %}
+			<h1><br><br>{{user.username}}'s Home Page</h1>
+		{% else %}
+			<h1><br><br>Home Page</h1>
+		{% endif%}
+
 	</div>
 		<!--{% if messages %}
 			{% for message in messages%}

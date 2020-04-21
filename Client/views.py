@@ -15,6 +15,8 @@ from django.contrib.auth.models import User
 from .forms import ClientIntakeForm
 from .models import ClientIntake
 from django.urls import reverse
+from django.views.generic.edit import FormView
+from .forms import FileFieldForm
 
 
 #def client_file(request):
@@ -41,6 +43,8 @@ def client_intake_page(request):
 			desiredOutcome = form.cleaned_data.get('desiredOutcome')
 			acceptOutcome = form.cleaned_data.get('acceptOutcome')
 			messages.success(request, f'Client intake form completed')
+			first_name = firstName
+			last_name = lastName
 			return redirect('client-intake-submit')
 	else:
 		form = ClientIntakeForm(instance=request.user.client_intake)

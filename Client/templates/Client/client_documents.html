@@ -1,34 +1,26 @@
 {% extends "./client_base.html" %}
-
 {% block content %}
-
-    
-<div class="container">
-    <div class="row">
-      <div class="col">
-        <a class='ml-2' > Download Documents: </a>
-        {% if user.router.clientDocs %}
-        <!--<a class="nav-item nav-link" href="/Client/./media/{{user.username}}/Test_file.pdf">Download PDF </a>-->
-        <a class="nav-item nav-link" href="/Client/./media/{{user.router.clientDocs}}">  Letter of Engagement </a>
-
-        {% else %}
-		<a class='ml-2' >   No new uploads</a>
-        {% endif %}
-      </div>
-      <div class="col">
-        <a class='ml-2'> Upload Documents:</a>
-      </div>
+<div class="content-section" style="border-color: white">
+  <div class="row">
+    <div class="col">
+      {% if user.router.clientDocs or user.router.clientDocs1 or user.router.doc2 or user.router.doc3 %}
+        <a class='ml-2' style="color: black"> <br><br><br><br>Download Documents: </a>
+      {% else %}
+        <a class='ml-2' style="color: black"> <br><br><br><br>No documents have been uploaded. </a>
+	     	<a class='ml-2' > <br><br>Please check back again later. </a>
+      {% endif %}
+      {% if user.router.clientDocs %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.clientDocs}}">  Letter of Engagement (Word .docx)</a>
+      {% endif %}
+      {% if user.router.clientDocs1 %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.clientDocs1}}">Letter of Engagement (PDF)</a>
+      {% endif %}
+      {% if user.router.doc2 %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.doc2}}"> Additional Document </a>
+      {% endif %}
+      {% if user.router.doc3 %}
+        <a class="nav-item nav-link" href="/Client/./media/{{user.router.doc3}}"> Additional Document </a>
+      {% endif %}
     </div>
-
-    <!--
-	<a class='ml-2' > Download Documents </a>
-    {% if user.router.specifications %}
-        <a class="nav-item nav-link" href="/Client/./media/{{user.username}}/Test_file.pdf">Download PDF </a>
-        <a class="nav-item nav-link" href="/Client/./media/{{user.router.specifications}}">  Letter of Engagement </a>
-
-    {% else %}
-		<a class='ml-2' >   No new uploads</a>
-    {% endif %}
-    <a class='ml-2'> Upload Documents</a>-->
-
+  </div>
 {% endblock content %}

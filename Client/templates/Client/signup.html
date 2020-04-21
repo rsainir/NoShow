@@ -87,18 +87,18 @@ form { margin: 0 auto; }
 </head>
 
 {% extends "./client_base.html" %}
-  
+
 {% block content %}
   <div>
     <body style="background-color:white;text-align:center">
-  
+
     <div class="inside" style="background-color:white; border: 5px solid; border-color: #2b2147; text-align:center;border-radius: 20px" >
 
        <div class ="imgcontainer">
         <img src="../../static/Client/glaw.jpeg" style="size: 1%; width: 200px; padding-bottom: 1px;margin-bottom: 1px">
       </div>
     <br></br>
-    
+
     {%load crispy_forms_tags %}
 
     <form method="post">
@@ -112,7 +112,7 @@ form { margin: 0 auto; }
           {% endif %}
           {% if form.password1.errors %}
             {% for error in form.password1.errors %}
-                <p style="color: red">{{ error }}</p>            
+                <p style="color: red">{{ error }}</p>
             {%endfor%}
           {% endif %}
         </p>
